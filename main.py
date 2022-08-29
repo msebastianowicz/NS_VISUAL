@@ -182,9 +182,12 @@ def get_programs(request: Request):
     # wystawienie maxów jako zmienne
     try:
         max_ktl = max_first_ktl[0][9][0]
-        max_pro = max_first_pro[0][9][0]
     except IndexError:
         max_ktl = 0
+    
+    try:
+        max_pro = max_first_ktl[0][9][0]
+    except IndexError:
         max_pro = 0
                 
     #Printy na konsole do śledzenia serwisu:
@@ -203,11 +206,14 @@ def get_programs(request: Request):
     print("\nPREPARED PRO")
     for after_pro in buffor_pro_cc:
         print(f'{buffor_pro_cc.index(after_pro)}--({after_pro[3]})--(x{after_pro[8]})--{after_pro}')
+    
     print("\n-----------------------------------ANOTHER VALUES-----------------------------------")
-    print("-- FIRST ON KTL -- : Do rozładowania:", buffor_ktl_cc[0][9][0],"z", max_first_ktl[0][9][0], "detalu:", buffor_ktl_cc[0][4])
-    print("len(ktl)", len(max_first_ktl))
-    print("-- FIRST ON PRO -- : Do rozładowania:", buffor_pro_cc[0][9][0],"z", max_first_pro[0][9][0], "detalu:", buffor_pro_cc[0][4])
-    print("len(pro)", len(max_first_pro))
+    if len(buffor_ktl_cc) >= 1:
+        print("-- FIRST ON KTL -- : Do rozładowania:", buffor_ktl_cc[0][9][0],"z", max_first_ktl[0][9][0], "detalu:", buffor_ktl_cc[0][4])
+        print("len(ktl)", len(max_first_ktl))
+    if len(buffor_pro_cc) >= 1:
+        print("-- FIRST ON PRO -- : Do rozładowania:", buffor_pro_cc[0][9][0],"z", max_first_pro[0][9][0], "detalu:", buffor_pro_cc[0][4])
+        print("len(pro)", len(max_first_pro))
 
     return templates.TemplateResponse("index.html", {"request": request, "buffor_ktl": buffor_ktl_cc, "buffor_pro": buffor_pro_cc,
                                      "totalKTL":totalKTL, "totalPRO":totalPRO, "max_ktl": max_ktl, "max_pro": max_pro})
