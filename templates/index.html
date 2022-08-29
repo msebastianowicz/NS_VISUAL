@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>NS BUFFOR</title>
+            <link id="favicon" rel="icon" type="image/x-icon" href="static/favicon.ico">
+            <link rel="stylesheet" href="static/styles.css">
+            
+        </head>
+        <body>
+            <div class="top_space">
+                <div class="logo">
+                    <div class="plant">Nowa Sól Plant</div>
+                </div>
+                <div class="totals">
+                    <div class="totalPRO">Total PRO:{{totalPRO}}</div>
+                    <div class="totalKTL">Total KTL:{{totalKTL}}</div>
+                </div>
+            </div>
+            <container>
+                <panel class="bot">
+                    <table id="table_buffor_2" class="table">
+                        <h5 class="PRO">BUFOR PRO</h5>
+                        <thead>
+                            <th>Lp</th>
+                            <th>NrPRM</th>
+                            <th>Nazwa detalu</th>
+                            <th>Tor</th>
+                            <th>Ilość detali</th>
+                            <th>Ilość pojemników</th>
+                            <th>Ilość zawieszek</th>
+                            <th>Belek</th>    
+                        </thead>
+                        <tbody>
+                            
+                            {% for row in buffor_pro %}
+                            <tr class="{% if row.1 == 2 %}{% if loop.index == 1 %}blink{% endif %}{% endif %}">
+                                <td>{{loop.index}}</td>
+                                <td>{{row.3}}</td>
+                                <td class="name">{{row.4}}</td>
+                                <td>{{row.1}}</td>
+                                <td>{{row.9.0}}{% if row.1 == 2 %} {% if loop.index == 1 %} / {{max_pro}} {% endif %} {% endif %}</td>
+                                <td>{{row.9.1}}</td>
+                                <td>{{row.9.2}}</td>
+                                <td>{{row.8}}</td>
+                            </tr>
+                            
+                            {% endfor %}
+                        
+                        </tbody>
+                        
+                    </table>
+                </panel>
+            </container>
+            <container>
+                <panel class="top">
+                    <table id="table_buffor_1" class="table">
+                        <h5 class="KTL">BUFOR KTL</h5>
+                        <thead>
+                        <th>Lp</th>
+                        <th>NrPRM</th>
+                        <th>Nazwa detalu</th>
+                        <th>Tor</th>
+                        <th>Ilość detali</th>
+                        <th>Ilość pojemników</th>
+                        <th>Ilość zawieszek</th>
+                        <th>Belek</th>
+                        </thead>
+                        <tbody>
+                            {% for row in buffor_ktl %}
+                            <tr class="{% if row.1 == 1 %}{% if loop.index == 1 %}blink{% endif %}{% endif %}">
+                                <td>{{loop.index}}</td>
+                                <td>{{row.3}}</td>
+                                <td class="name">{{row.4}}</td>
+                                <td>{{row.1}}</td>
+                                <td>{{row.9.0}}{% if row.1 == 1 %} {% if loop.index == 1 %} / {{max_ktl}}{% endif %} {% endif %}</td>
+                                <td>{{row.9.1}}</td>
+                                <td>{{row.9.2}}</td>
+                                <td>{{row.8}}</td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                        
+                    </table>
+                </panel>
+            </container>  
+        
+            <script type="text/javascript" src="static/script.js"></script>
+
+        </body>

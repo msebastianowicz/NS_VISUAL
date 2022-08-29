@@ -1,0 +1,113 @@
+<head>
+	<link id="favicon" rel="icon" type="image/x-icon" href="static/favicon.ico">
+<style>
+body{
+  background-color:#000;
+  text-shadow: 1px 1px #000; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+container{
+	display:flex;
+	position: relative;
+	margin:0px;
+	padding:0px;
+}
+panel {
+	min-height: 99%;
+	width: 50%;
+	display:block;
+}
+
+table {
+	width: 100%;
+}
+td, th {
+	display: block; 
+	margin:0px;
+	padding:0px;
+	color:#fff;
+}
+
+tr {
+	width: auto;
+	text-align:center; 
+	display: block;
+	box-shadow: inset 3px 3px 1px #000;
+	background-color: #222;
+	font-size: 16px;
+	font-size: 5vh;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+th {
+	color: white;
+}
+.lightgreen{ color:lightgreen;}
+.red{ color:red;}
+.lightgray{ color:lightgray;}
+</style>
+</head>
+<body>
+	<container>
+		<panel>
+			<table id="ZNK1" class="table">
+				<thead>
+					<th>ZNK1</th>		
+				</thead>
+				<tbody>
+					
+					{% for row in list_znk_1 %}
+					<tr>
+					
+						<td class="lightgreen">{{row.2}}</td>
+						<td class="red">{{row.16}}</td>
+						<td class="lightgray">{{row.3}}</td>
+						<td class="lightgreen">Zamówiono: <span class="red">{{row.5}}</span></td>
+						<td class="lightgreen">Zrealizowano: <span class="red">{{row.14}}</span></td>
+						
+						
+					</tr>
+
+					{% endfor %}
+				</tbody>
+				
+			</table>
+		</panel>
+		<panel>  
+			<table id="ZNK1" class="table">
+				<thead>
+					<th>ZNK2</th>
+									
+				</thead>
+				<tbody>
+					
+					{% for row in list_znk_2 %}
+					<tr>
+					
+						<td class="lightgreen">{{row.2}}</td>
+						<td class="red">{{row.16}}</td>
+						<td class="lightgray">{{row.3}}</td>
+						<td class="lightgreen">Zamówiono: <span class="red">{{row.5}}</span></td>
+						<td class="lightgreen">Zrealizowano: <span class="red">{{row.14}}</span></td>
+						
+						
+					</tr>
+
+					{% endfor %}
+				</tbody>
+				
+			</table>
+		</panel>
+	</container>
+	<script>
+		function refresh(){
+			setInterval(function () {
+				location.reload(true)
+			},
+				60*1000)//60* 1s
+		}
+		refresh();
+	</script>
+</body>

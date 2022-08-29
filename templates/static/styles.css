@@ -1,0 +1,136 @@
+body {
+    background-color:#000;
+    text-shadow: 2px 2px #000; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%
+
+}
+
+container {
+    display: flex;
+    margin: 0;
+	padding: 0px 0px 1% 0px;
+     
+}
+container.logo {
+    padding: 0px;
+    margin: 20px 0px 0px 10px;
+    height: 40px;
+}
+panel.top {
+    width: 100%;
+    background-color: rgba(74, 87, 62, 0.596);
+}
+
+panel.bot {
+    margin-top: 2%;
+    width: 100%;
+    background-color: rgba(121, 78, 78, 0.76);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+
+}
+.KTL{
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+    background-color: rgba(41, 167, 36, 0.589);
+    color: white;
+    font-size: calc(1rem + 0.8vw);
+   
+}
+.PRO{
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+    background-color: rgb(185, 71, 71);
+    color: white;
+    font-size: calc(1rem + 0.8vw);
+}
+.name {
+    width: 40%;
+    color: white;
+}
+.amount {
+    width: 12%;
+    color: white;
+}
+tr {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+td, th {
+        border: 3px solid black;
+}
+th {
+    color: rgb(53, 207, 169);
+    font-size: calc(0.6rem + 1vw);
+}
+span.total {
+    color: rgb(247, 230, 3);
+}
+
+td {
+    color: white;
+    font-size: calc(1.3rem + 0.5vw);
+}
+.top_space {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -2%;
+    font-size: calc(0.8rem + 1vw);
+}
+.logo {
+    width: 330px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 170px;
+    background-image: url("/static/białe_i.png");   
+    font-size: calc(0.2rem + 1vw);
+    color: rgba(168, 151, 151, 0.822);
+    text-shadow: 1px 1px rgb(218, 6, 6);
+    justify-content: right;
+}
+.plant {
+    align-items: flex-end;
+}
+.logo, .plant{
+    display: inline-flex;
+}
+
+.totalPRO{
+    color: rgb(185, 71, 71);
+    
+}
+.totalKTL{
+    color: rgba(41, 167, 36, 0.589);
+}
+.totalPRO, .totalKTL{
+    display: inline;
+    padding-inline: 5px;
+    padding-right: 20px;
+}
+
+  
+@keyframes blink {
+0% {
+    --opacity: 1;
+    color: rgba(247, 244, 78,1);
+}
+50% {
+    color: rgba(247, 244, 78,0.50);
+}
+100% {
+   --opacity: 1;
+    color: rgba(247, 244, 78,1);
+}
+}
+tr.blink td {
+    animation: blink 1s infinite;
+  }
