@@ -1,5 +1,6 @@
 from operator import index
 from fastapi import FastAPI, Request
+from config import settings
 import pyodbc
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -10,18 +11,11 @@ app.mount("/static", StaticFiles(directory="templates/static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
-# PRODUKCJA
-DB = "xxxx"
-DB_SERVER = "xxxx"
-DB_USER = "xxxx"
-DB_PASSWORD = "xxxx"
-DB_DRIVER = "{ODBC Driver 17 for SQL Server}"
-
-db_URL = (f"DRIVER={DB_DRIVER};"
-          f"Server={DB_SERVER};"
-          f"Database={DB};"
-          f"UID={DB_USER};"
-          f"PWD={DB_PASSWORD};"
+db_URL = (f"DRIVER={settings.db_driver};"
+          f"Server={settings.db_server};"
+          f"Database={settings.db_name};"
+          f"UID={settings.db_user};"
+          f"PWD={settings.db_password};"
           # "Trusted_Connection=yes;"
           )
 #globalne listy jednoelementowe, na maxa z paczki, którą rozładowywują
@@ -186,7 +180,7 @@ def get_programs(request: Request):
         max_ktl = 0
     
     try:
-        max_pro = max_first_ktl[0][9][0]
+        max_pro = max_first_pro[0][9][0]
     except IndexError:
         max_pro = 0
                 
